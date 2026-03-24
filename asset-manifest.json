@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/grainstore-site/static/css/main.83d15bc8.css",
+    "main.js": "/grainstore-site/static/js/main.13e2cb86.js",
+    "index.html": "/grainstore-site/index.html",
+    "main.83d15bc8.css.map": "/grainstore-site/static/css/main.83d15bc8.css.map",
+    "main.13e2cb86.js.map": "/grainstore-site/static/js/main.13e2cb86.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.83d15bc8.css",
+    "static/js/main.13e2cb86.js"
+  ]
+}
