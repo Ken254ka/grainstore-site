@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import API_BASE_URL from '../config';
 
 function Dashboard() {
   const [stats, setStats] = useState({ 
@@ -15,9 +16,9 @@ function Dashboard() {
   useEffect(() => {
     // Fetch all data
     Promise.all([
-      fetch('/api/products').then(res => res.json()),
-      fetch('/api/orders').then(res => res.json()),
-      fetch('/api/customers').then(res => res.json())
+      fetch(`${API_BASE_URL}/api/products`).then(res => res.json()),
+      fetch(`${API_BASE_URL}/api/orders`).then(res => res.json()),
+      fetch(`${API_BASE_URL}/api/customers`).then(res => res.json())
     ]).then(([products, orders, customers]) => {
       const totalValue = products.reduce((sum, p) => sum + (p.price * p.quantity), 0);
       const lowStockItems = products.filter(p => p.quantity < 20).length;

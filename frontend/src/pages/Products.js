@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import API_BASE_URL from '../config';
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -11,7 +12,7 @@ function Products() {
   }, []);
 
   const fetchProducts = () => {
-    fetch('/api/products')
+    fetch(`${API_BASE_URL}/api/products`)
       .then(res => res.json())
       .then(setProducts)
       .catch(err => setError('Failed to fetch products'));
@@ -28,7 +29,7 @@ function Products() {
       return;
     }
 
-    fetch('/api/products', {
+    fetch(`${API_BASE_URL}/api/products`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(form)
@@ -49,7 +50,7 @@ function Products() {
 
   const deleteProduct = (id, name) => {
     if (window.confirm(`Are you sure you want to delete ${name}?`)) {
-      fetch(`/api/products/${id}`, { method: 'DELETE' })
+      fetch(`${API_BASE_URL}/api/products/${id}`, { method: 'DELETE' })
         .then(res => res.json())
         .then(() => {
           setSuccess('Product deleted successfully!');

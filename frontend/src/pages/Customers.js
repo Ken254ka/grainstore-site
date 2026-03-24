@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import API_BASE_URL from '../config';
 
 function Customers() {
   const [customers, setCustomers] = useState([]);
@@ -11,7 +12,7 @@ function Customers() {
   }, []);
 
   const fetchCustomers = () => {
-    fetch('/api/customers')
+    fetch(`${API_BASE_URL}/api/customers`)
       .then(res => res.json())
       .then(setCustomers)
       .catch(err => setError('Failed to fetch customers'));
@@ -27,7 +28,7 @@ function Customers() {
       return;
     }
 
-    fetch('/api/customers', {
+    fetch(`${API_BASE_URL}/api/customers`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(form)
@@ -48,7 +49,7 @@ function Customers() {
 
   const deleteCustomer = (id, name) => {
     if (window.confirm(`Are you sure you want to delete ${name}?`)) {
-      fetch(`/api/customers/${id}`, { method: 'DELETE' })
+      fetch(`${API_BASE_URL}/api/customers/${id}`, { method: 'DELETE' })
         .then(res => res.json())
         .then(() => {
           setSuccess('Customer deleted successfully!');

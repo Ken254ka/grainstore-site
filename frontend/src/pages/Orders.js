@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import API_BASE_URL from '../config';
 
 function Orders() {
   const [orders, setOrders] = useState([]);
@@ -10,12 +11,12 @@ function Orders() {
 
   useEffect(() => {
     fetchOrders();
-    fetch('/api/products').then(res => res.json()).then(setProducts);
-    fetch('/api/customers').then(res => res.json()).then(setCustomers);
+    fetch(`${API_BASE_URL}/api/products`).then(res => res.json()).then(setProducts);
+    fetch(`${API_BASE_URL}/api/customers`).then(res => res.json()).then(setCustomers);
   }, []);
 
   const fetchOrders = () => {
-    fetch('/api/orders')
+    fetch(`${API_BASE_URL}/api/orders`)
       .then(res => res.json())
       .then(setOrders)
       .catch(err => setError('Failed to fetch orders'));
@@ -26,7 +27,7 @@ function Orders() {
     setError('');
     setSuccess('');
 
-    fetch('/api/orders', {
+    fetch(`${API_BASE_URL}/api/orders`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(form)
@@ -46,7 +47,7 @@ function Orders() {
   };
 
   const updateOrderStatus = (orderId, newStatus) => {
-    fetch(`/api/orders/${orderId}`, {
+    fetch(`${API_BASE_URL}/api/orders/${orderId}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ status: newStatus })
