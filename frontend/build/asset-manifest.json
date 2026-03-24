@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.83d15bc8.css",
-    "main.js": "/static/js/main.ec4c29eb.js",
-    "index.html": "/index.html",
-    "main.83d15bc8.css.map": "/static/css/main.83d15bc8.css.map",
-    "main.ec4c29eb.js.map": "/static/js/main.ec4c29eb.js.map"
+    "main.css": "/grainstore-site/static/css/main.83d15bc8.css",
+    "main.js": "/grainstore-site/static/js/main.13e2cb86.js",
+    "index.html": "/grainstore-site/index.html",
+    "main.83d15bc8.css.map": "/grainstore-site/static/css/main.83d15bc8.css.map",
+    "main.13e2cb86.js.map": "/grainstore-site/static/js/main.13e2cb86.js.map"
   },
   "entrypoints": [
     "static/css/main.83d15bc8.css",
-    "static/js/main.ec4c29eb.js"
+    "static/js/main.13e2cb86.js"
   ]
 }
